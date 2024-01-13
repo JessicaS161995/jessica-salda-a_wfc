@@ -1,5 +1,5 @@
 const celdas = []; 
-const RETICULA = 5;
+const RETICULA = 20;
 
 let ancho; //anchura de celda
 let alto; //altura de celda
@@ -229,7 +229,7 @@ function draw() {
             const indiceRIGHT = x + 1 + y * RETICULA;
             const celdaRIGHT = celdas[indiceRIGHT];
             if (!celdaRIGHT.colapsada) {
-              cambiarEntropia(celdaRIGTH, reglasActuales['RIGTH'], 'LEFT'); 
+              cambiarEntropia(celdaRIGHT, reglasActuales['RIGHT'], 'LEFT');
             }
           }
           // Cambiar entropia DOWN
