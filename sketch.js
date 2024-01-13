@@ -143,11 +143,12 @@ function preload() {
   }
 }
 
+
 function setup() {
   createCanvas(1080, 1080);
   
   ancho = width / RETICULA;
-  alto = height / RETICULA;
+  alto = height / RETICULA; 
 
   let opcionesI = [];
   for (let i = o; i < azulejos.length; i++) {
@@ -160,6 +161,14 @@ function setup() {
       opciones: opcionesI,
     };
   }
+  celdas[8].colapsada = true;
+  celdas[3].colapsada = true;
+
+  //celdas[12].opciones = [5, 6, 8];
+  //celdas[4].opciones = [4, 7, 12];
+  //celdas[6].opciones = [9, 7, 12];
+  //celdas[1].opciones = [6, 4, 8, 10];
+  //celdas[5].opciones = [11, 6, 4, 8, 10];
 }
 
 function draw() {
