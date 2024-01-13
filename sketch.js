@@ -151,11 +151,11 @@ function setup() {
   alto = height / RETICULA; 
 
   let opcionesI = [];
-  for (let i = o; i < azulejos.length; i++) {
+  for (let i = 0; i < azulejos.length; i++) {
     opcionesI.push(i);
   }
 
-  for (let i = o; i < RETICULA * RETICULA; i++) {
+  for (let i = 0; i < RETICULA * RETICULA; i++) {
     celdas[i] = {
       colapsada: false,
       opciones: opcionesI,
@@ -210,15 +210,18 @@ function draw() {
             ancho,
             alto,
           );
-           //Cambiar entropia UP
-          if (y > 0) {
-            const indiceUP = x + (y - 1) * RETICULA;
-            const celdaUP = celdas[indiceUP];
-            if (!celdaUP.colapsada) {
-             cambiarEntropia(celdaUP, reglasActuales['UP'], 'DOWN');
-            }
-
-          }
+           // Cambiar entropía UP
+					if (y > 0) {
+						const indiceUP = x + (y - 1) * RETICULA;
+						const celdaUP = celdas[indiceUP];
+						if (!celdaUP.colapsada) {
+							cambiarEntropia(
+								celdaUP,
+								reglasActuales['UP'],
+								'DOWN'
+							);
+						}
+					}
          // Cambiar entropia RIGTH
           if (x < RETICULA - 1) {
             const indiceRIGHT = x + 1 + y * RETICULA;
