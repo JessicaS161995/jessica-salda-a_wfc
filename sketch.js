@@ -137,10 +137,29 @@ const reglas = [
 },
 ];
 
-
+function preload() {
+  for (let i = 0; i < NA; i++){
+    azulejos[i] = loadImage(`azulejos/tile${i}.png`);
+  }
+}
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(1080, 1080);
+  
+  ancho = width / RETICULA;
+  alto = height / RETICULA;
+
+  let opcionesI = [];
+  for (let i = o; i < azulejos.length; i++) {
+    opcionesI.push(i);
+  }
+
+  for (let i = o; i < RETICULA * RETICULA; i++) {
+    celdas[i] = {
+      colapsada: false,
+      opciones: opcionesI,
+    };
+  }
 }
 
 function draw() {
