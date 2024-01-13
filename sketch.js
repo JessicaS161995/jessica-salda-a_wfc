@@ -173,6 +173,10 @@ function setup() {
 
 function draw() {
   // background(111);
+  const celdasConOpciones = celdas.filter((celda) => {
+		return celda.opciones.length > 0;
+  });
+  
   const celdasDisponibles = celdas.filter((celda) => {
     return celda.colapsada == false;
   });
@@ -199,27 +203,25 @@ function draw() {
       for (let y = 0; y < RETICULA; y++) {
         const celdaIndex = x + y * RETICULA;
         const celdaActual = celdas[celdaIndex];
+
+        // esta sección busca y ubica la celda colapsada actual.
         if (celdaActual.colapsada) {
           const indiceDeAzulejo = celdaActual.opciones[0];
           const reglasActuales = reglas[indiceDeAzulejo];
           //print(reglasActuales);
           image(
             azulejos[indiceDeAzulejo],
-            x = ancho,
-            y = alto,
+            x * ancho,
+            y * alto,
             ancho,
-            alto,
+            alto
           );
            // Cambiar entropía UP
 					if (y > 0) {
 						const indiceUP = x + (y - 1) * RETICULA;
 						const celdaUP = celdas[indiceUP];
 						if (!celdaUP.colapsada) {
-							cambiarEntropia(
-								celdaUP,
-								reglasActuales['UP'],
-								'DOWN'
-							);
+							cambiarEntropia(celdaUP, reglasActuales['UP'], 'DOWN');
 						}
 					}
          // Cambiar entropia RIGTH
